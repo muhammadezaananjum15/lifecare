@@ -23,7 +23,6 @@ import {
   Search,
   ShoppingCart,
   Building2,
-  FileText,
   Microscope
 } from 'lucide-react';
 import DoctorCard from '../components/DoctorCard';
@@ -45,141 +44,101 @@ interface HeroSlideData {
   primaryBtnLink: string;
   secondaryBtnText: string;
   secondaryBtnLink: string;
-  images: {
-    url: string;
-    label: string;
-  }[];
+  bgImage: string;
+  thumbnailLabel: string;
   badgeTopText: string;
   badgeTopSub: string;
   badgeBottomVal: string;
   badgeBottomText: string;
+  cardHighlightTitle: string;
+  cardHighlightSub: string;
   quickTags: string[];
 }
 
 const heroSlides: HeroSlideData[] = [
   {
     id: 1,
-    tag: "Karachi's #1 Emergency & Level-1 Trauma Centre",
-    titleLight: "Rapid Emergency Response",
+    tag: "Karachi's Premier Level-1 Trauma & Emergency Centre",
+    titleLight: "Rapid Emergency Care",
     titleHighlight: "When Every Second",
-    titleEnd: "Matters Most.",
-    description: "Dedicated cardiac cath labs, 24/7 hyperbaric ICU suites, and 12-minute rapid ambulance dispatch stationed across Clifton, DHA, and Gulshan.",
+    titleEnd: "Counts Most.",
+    description: "24/7 dedicated cardiac catheterization suites, hyperbaric intensive care, and 12-minute rapid ambulance dispatch stationed across Clifton, DHA, and Gulshan-e-Iqbal.",
     primaryBtnText: "Book Doctor Appointment",
     primaryBtnLink: "/book",
     secondaryBtnText: "Emergency: 111-911-911",
     secondaryBtnLink: "tel:+9221111911911",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=85",
-        label: "Trauma ICU Suite"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1200&q=85",
-        label: "Rapid Response Unit"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200&q=85",
-        label: "Cardiac Emergency"
-      }
-    ],
-    badgeTopText: "24/7 Emergency & ICU",
-    badgeTopSub: "Trauma Teams On Standby",
+    bgImage: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1800&q=85",
+    thumbnailLabel: "Emergency & Trauma",
+    badgeTopText: "24/7 Trauma Teams On Call",
+    badgeTopSub: "Clifton & Gulshan Emergency Units",
     badgeBottomVal: "12 Mins",
-    badgeBottomText: "Avg Ambulance Dispatch",
-    quickTags: ["Level-1 Trauma", "24/7 Cath Lab", "Clifton & Gulshan Hubs"]
+    badgeBottomText: "Avg Ambulance Dispatch Time",
+    cardHighlightTitle: "24/7 Rapid Trauma Unit",
+    cardHighlightSub: "On-duty emergency physicians, ICU trauma surgeons, and immediate cardiac triage ready round the clock.",
+    quickTags: ["Level-1 Trauma", "24/7 Cath Lab", "Rapid Ambulance"]
   },
   {
     id: 2,
     tag: "120+ Board-Certified Professors & Consultants",
-    titleLight: "Pioneering Minimally Invasive",
-    titleHighlight: "Robotic Surgery & Specialist",
-    titleEnd: "OPD Clinics.",
-    description: "Consult with internationally recognized leaders in Cardiology, Neurology, Orthopedics, and Oncology with guaranteed on-time consultations and digital prescriptions.",
-    primaryBtnText: "Explore Specialist Doctors",
+    titleLight: "Pioneering Robotic",
+    titleHighlight: "Minimally Invasive Surgery",
+    titleEnd: "& Super-Specialties.",
+    description: "Consult with internationally recognized leaders in Cardiology, Neurology, Orthopedics, and Oncology with guaranteed on-time slots and instant digital prescriptions.",
+    primaryBtnText: "Find a Specialist Doctor",
     primaryBtnLink: "/doctors",
-    secondaryBtnText: "View Weekly Schedule",
+    secondaryBtnText: "View OPD Timetable",
     secondaryBtnLink: "/book",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=1200&q=85",
-        label: "Consultant Suite"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&q=85",
-        label: "Robotic Operation Theatre"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=1200&q=85",
-        label: "Surgical Team"
-      }
-    ],
-    badgeTopText: "Next Slot Available",
-    badgeTopSub: "Today 11:30 AM (Clifton)",
+    bgImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1800&q=85",
+    thumbnailLabel: "Robotic Surgery",
+    badgeTopText: "Same-Day Consultant Slot",
+    badgeTopSub: "Available Today at Clifton OPD",
     badgeBottomVal: "99.4%",
-    badgeBottomText: "Patient Satisfaction",
-    quickTags: ["Cardiology", "Neurology", "Robotic Laparoscopy"]
+    badgeBottomText: "Patient Satisfaction Rate",
+    cardHighlightTitle: "World-Class Specialists",
+    cardHighlightSub: "Senior faculty and surgeons from AKU, Dow, and Royal College Fellows offering comprehensive multi-disciplinary care.",
+    quickTags: ["Adult & Pediatric Cardiology", "Brain & Spine Surgery", "Robotic Laparoscopy"]
   },
   {
     id: 3,
-    tag: "Karachi Online Pharmacy • Express Dispatch",
+    tag: "Karachi Online Pharmacy • Express 2-Hour Delivery",
     titleLight: "100% Genuine Prescription",
-    titleHighlight: "Medicines Delivered in",
-    titleEnd: "2 Hours.",
-    description: "Temperature-regulated cold-chain delivery, certified clinical pharmacists, and automated dosage verification across all 18 Karachi towns.",
+    titleHighlight: "Medicines at Your Doorstep",
+    titleEnd: "in 2 Hours.",
+    description: "Temperature-regulated cold-chain delivery, certified clinical pharmacists, and automated dosage verification delivered across all 18 Karachi districts.",
     primaryBtnText: "Order Medicines Online",
     primaryBtnLink: "/medicines",
     secondaryBtnText: "Upload Prescription",
     secondaryBtnLink: "/medicines",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1200&q=85",
-        label: "Online Pharmacy"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=1200&q=85",
-        label: "Cold-Chain Storage"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&q=85",
-        label: "Express Dispatch Fleet"
-      }
-    ],
-    badgeTopText: "2-Hour Express Delivery",
-    badgeTopSub: "Active Across Karachi",
+    bgImage: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1800&q=85",
+    thumbnailLabel: "2-Hour Pharmacy",
+    badgeTopText: "Express 2-Hour Delivery",
+    badgeTopSub: "Live Tracking Across Karachi",
     badgeBottomVal: "20% OFF",
-    badgeBottomText: "Use Code: LIFECARE20",
-    quickTags: ["Cold-Chain Storage", "PMDC Certified", "Free Delivery on PKR 1,500+"]
+    badgeBottomText: "Use Voucher: LIFECARE20",
+    cardHighlightTitle: "Certified Clinical Pharmacy",
+    cardHighlightSub: "Temperature-controlled insulin, chronic disease refills, and hospital-grade surgical supplies with pharmacist call support.",
+    quickTags: ["Cold-Chain Storage", "PMDC Approved", "Free Shipping on PKR 1,500+"]
   },
   {
     id: 4,
-    tag: "Cutting-Edge AI Diagnostics & Clinical Imaging",
+    tag: "Advanced AI Diagnostics & Precision Imaging",
     titleLight: "Ultra-Fast 3.0 Tesla MRI &",
     titleHighlight: "128-Slice Low-Dose CT",
-    titleEnd: "Scans.",
-    description: "Experience ultra-precise, low-radiation diagnostic imaging and molecular pathology with encrypted digital reports sent directly to your phone in under 4 hours.",
+    titleEnd: "Diagnostic Center.",
+    description: "Ultra-precise, low-radiation diagnostic imaging and molecular pathology with encrypted digital reports delivered directly to your smartphone in under 4 hours.",
     primaryBtnText: "Explore Diagnostic Services",
     primaryBtnLink: "/services",
     secondaryBtnText: "Download Online Reports",
     secondaryBtnLink: "/contact",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&q=85",
-        label: "3.0T MRI Scanner"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&q=85",
-        label: "Digital Pathology Lab"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1200&q=85",
-        label: "AI Diagnostic Console"
-      }
-    ],
-    badgeTopText: "Digital Reports in 4 Hrs",
-    badgeTopSub: "AI Radiologist Verification",
+    bgImage: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1800&q=85",
+    thumbnailLabel: "3.0T MRI & Diagnostics",
+    badgeTopText: "Digital Reports in 4 Hours",
+    badgeTopSub: "Dual Radiologist AI Verification",
     badgeBottomVal: "99.9%",
-    badgeBottomText: "Diagnostic Accuracy",
-    quickTags: ["3.0T Silent MRI", "Digital Mammography", "Automated Lab"]
+    badgeBottomText: "Diagnostic Precision",
+    cardHighlightTitle: "Comprehensive Diagnostic Wing",
+    cardHighlightSub: "Silent 3.0T MRI scanning, 4D Doppler echocardiography, and automated molecular lab with digital WhatsApp report delivery.",
+    quickTags: ["Silent 3.0T MRI", "Low-Dose CT", "Automated Pathology"]
   }
 ];
 
@@ -262,25 +221,21 @@ const symptomsData = [
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedZone, setSelectedZone] = useState(0);
   const [selectedSymptom, setSelectedSymptom] = useState(0);
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
   const slideTimerRef = useRef<number | null>(null);
   const { addToCart } = useCart();
 
-  // Reset selected image when slide changes
-  useEffect(() => {
-    setSelectedImageIndex(0);
-  }, [currentSlide]);
-
-  // Carousel Auto-Play
+  // Carousel Auto-Slide
   useEffect(() => {
     if (isPaused) return;
 
     slideTimerRef.current = window.setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % heroSlides.length);
-    }, 6000);
+    }, 5500);
 
     return () => {
       if (slideTimerRef.current) clearInterval(slideTimerRef.current);
@@ -338,140 +293,167 @@ const Home = () => {
     setCurrentSlide(prev => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
+  // Touch Swipe Handling
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 70) {
+      nextSlide();
+    }
+    if (touchStartX.current - touchEndX.current < -70) {
+      prevSlide();
+    }
+  };
+
   const featuredDoctors = doctors.slice(0, 4);
   const featuredMedicines = medicines.slice(0, 4);
-  const activeSlideData = heroSlides[currentSlide];
-  const activeHeroImage = activeSlideData.images[selectedImageIndex] || activeSlideData.images[0];
 
   return (
     <>
       {/* ========================================================= */}
-      {/* HERO SECTION WITH MULTI-IMAGE CAROUSEL                    */}
+      {/* TRUE HORIZONTAL SLIDING HERO IMAGE CAROUSEL               */}
       {/* ========================================================= */}
       <section
-        className="hero-carousel-container"
+        className="hero-slider-wrapper"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
-        <div className="hero-carousel-bg-glow" />
-        <div className="hero-carousel-bg-glow-2" />
-
-        <div className="container" style={{ position: 'relative', zIndex: 5, flex: 1, display: 'flex', alignItems: 'center' }}>
+        {/* Sliding Track */}
+        <div
+          className="hero-slider-track"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
           {heroSlides.map((slide, index) => {
             const isActive = index === currentSlide;
-            const currentImg = slide.images[selectedImageIndex] || slide.images[0];
             return (
               <div
                 key={slide.id}
-                className={`hero-slide ${isActive ? 'active' : ''}`}
-                style={{ width: '100%' }}
+                className={`hero-slide-item ${isActive ? 'active' : ''}`}
               >
-                <div className="hero-slide-grid">
-                  {/* Left: Content */}
-                  <div>
-                    <div className="hero-tag-pill">
-                      <span className="hero-live-indicator" />
-                      {slide.tag}
-                    </div>
+                {/* Background Image Media with Ken Burns */}
+                <div className="hero-slide-bg-media">
+                  <img
+                    src={slide.bgImage}
+                    alt={slide.titleLight}
+                    className="hero-slide-bg-img"
+                  />
+                  <div className="hero-slide-gradient-overlay" />
+                </div>
 
-                    <h1 className="hero-slide-title">
-                      {slide.titleLight}{' '}
-                      <span>{slide.titleHighlight}</span>{' '}
-                      {slide.titleEnd}
-                    </h1>
+                {/* Slide Content */}
+                <div className="container hero-slide-content-wrap">
+                  <div className="hero-slide-grid-layout">
+                    {/* Left Column: Typography & CTAs */}
+                    <div>
+                      <div className="hero-tag-badge">
+                        <span className="hero-live-dot" />
+                        {slide.tag}
+                      </div>
 
-                    <p className="hero-slide-desc">
-                      {slide.description}
-                    </p>
+                      <h1 className="hero-main-heading">
+                        {slide.titleLight}{' '}
+                        <span>{slide.titleHighlight}</span>{' '}
+                        {slide.titleEnd}
+                      </h1>
 
-                    <div className="hero-slide-actions">
-                      <Link to={slide.primaryBtnLink} className="btn btn-primary btn-lg" style={{ boxShadow: '0 8px 30px rgba(74, 222, 128, 0.35)' }}>
-                        {slide.primaryBtnText} <ArrowRight size={18} />
-                      </Link>
+                      <p className="hero-lead-text">
+                        {slide.description}
+                      </p>
 
-                      {slide.secondaryBtnLink.startsWith('tel:') ? (
-                        <a href={slide.secondaryBtnLink} className="btn btn-ghost btn-lg">
-                          <PhoneCall size={18} style={{ color: '#ef4444' }} /> {slide.secondaryBtnText}
-                        </a>
-                      ) : (
-                        <Link to={slide.secondaryBtnLink} className="btn btn-ghost btn-lg">
-                          {slide.secondaryBtnText} <ChevronRight size={18} />
+                      <div className="hero-actions-group">
+                        <Link
+                          to={slide.primaryBtnLink}
+                          className="btn btn-primary btn-lg"
+                          style={{ boxShadow: '0 8px 30px rgba(74, 222, 128, 0.45)' }}
+                        >
+                          {slide.primaryBtnText} <ArrowRight size={18} />
                         </Link>
-                      )}
-                    </div>
 
-                    {/* Quick Tags */}
-                    <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
-                      <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                        Highlights:
-                      </span>
-                      {slide.quickTags.map((tag, i) => (
-                        <span
-                          key={i}
-                          style={{
-                            background: 'rgba(255,255,255,0.08)',
-                            border: '1px solid rgba(255,255,255,0.15)',
-                            padding: '4px 12px',
-                            borderRadius: '20px',
-                            fontSize: '0.8rem',
-                            color: '#dcfce7',
-                            fontWeight: 500
-                          }}
-                        >
-                          ✓ {tag}
+                        {slide.secondaryBtnLink.startsWith('tel:') ? (
+                          <a
+                            href={slide.secondaryBtnLink}
+                            className="btn btn-ghost btn-lg"
+                            style={{ background: 'rgba(239,68,68,0.2)', borderColor: 'rgba(239,68,68,0.5)', color: '#fca5a5' }}
+                          >
+                            <PhoneCall size={18} style={{ color: '#ef4444' }} /> {slide.secondaryBtnText}
+                          </a>
+                        ) : (
+                          <Link to={slide.secondaryBtnLink} className="btn btn-ghost btn-lg">
+                            {slide.secondaryBtnText} <ChevronRight size={18} />
+                          </Link>
+                        )}
+                      </div>
+
+                      {/* Quick Tags */}
+                      <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
+                        <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                          Key Features:
                         </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Right: Multi-Image Showcase with Thumbnail Switcher */}
-                  <div className="hero-visual-card">
-                    <img
-                      src={currentImg.url}
-                      alt={currentImg.label}
-                      className="hero-visual-img"
-                    />
-
-                    {/* Image Thumbnails Strip */}
-                    <div className="hero-img-thumbnails-strip">
-                      {slide.images.map((img, imgIdx) => (
-                        <button
-                          key={imgIdx}
-                          className={`hero-img-thumb ${selectedImageIndex === imgIdx ? 'active' : ''}`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedImageIndex(imgIdx);
-                          }}
-                          title={img.label}
-                          aria-label={img.label}
-                        >
-                          <img src={img.url} alt={img.label} />
-                        </button>
-                      ))}
-                      <div style={{ alignSelf: 'center', padding: '0 6px', fontSize: '0.72rem', color: '#86efac', fontWeight: 700 }}>
-                        {selectedImageIndex + 1}/{slide.images.length}
+                        {slide.quickTags.map((tag, i) => (
+                          <span
+                            key={i}
+                            style={{
+                              background: 'rgba(255,255,255,0.12)',
+                              border: '1px solid rgba(255,255,255,0.2)',
+                              backdropFilter: 'blur(8px)',
+                              padding: '5px 14px',
+                              borderRadius: '20px',
+                              fontSize: '0.82rem',
+                              color: '#dcfce7',
+                              fontWeight: 600
+                            }}
+                          >
+                            ✓ {tag}
+                          </span>
+                        ))}
                       </div>
                     </div>
 
-                    {/* Floating Top Badge */}
-                    <div className="hero-floating-badge-top">
-                      <div style={{ width: 34, height: 34, borderRadius: '50%', background: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
-                        <Activity size={18} />
-                      </div>
-                      <div>
-                        <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ffffff' }}>{slide.badgeTopText}</div>
-                        <div style={{ fontSize: '0.72rem', color: '#86efac' }}>{slide.badgeTopSub}</div>
-                      </div>
-                    </div>
+                    {/* Right Column: Glassmorphism Highlight Card */}
+                    <div>
+                      <div className="hero-side-card-glass">
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                            <div style={{ width: 40, height: 40, borderRadius: '12px', background: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
+                              <Activity size={22} />
+                            </div>
+                            <div>
+                              <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#ffffff' }}>{slide.badgeTopText}</div>
+                              <div style={{ fontSize: '0.75rem', color: '#86efac' }}>{slide.badgeTopSub}</div>
+                            </div>
+                          </div>
 
-                    {/* Floating Metric */}
-                    <div className="hero-floating-badge-bottom">
-                      <div>
-                        <div style={{ fontSize: '1.4rem', fontWeight: 900, color: 'var(--primary)', lineHeight: 1 }}>{slide.badgeBottomVal}</div>
-                        <div style={{ fontSize: '0.75rem', color: 'var(--gray-600)', fontWeight: 600 }}>{slide.badgeBottomText}</div>
-                      </div>
-                      <div style={{ width: 30, height: 30, borderRadius: '50%', background: 'var(--green-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)' }}>
-                        <CheckCircle2 size={16} />
+                          <div style={{ textAlign: 'right' }}>
+                            <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#4ade80', lineHeight: 1 }}>{slide.badgeBottomVal}</div>
+                            <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>{slide.badgeBottomText}</div>
+                          </div>
+                        </div>
+
+                        <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#ffffff', marginBottom: 10 }}>
+                          {slide.cardHighlightTitle}
+                        </h3>
+
+                        <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.6, marginBottom: 20 }}>
+                          {slide.cardHighlightSub}
+                        </p>
+
+                        <div style={{ display: 'flex', gap: 10 }}>
+                          <Link to="/book" className="btn btn-primary w-full" style={{ padding: '10px 16px', fontSize: '0.88rem' }}>
+                            <Calendar size={16} /> Instant Appointment
+                          </Link>
+                          <Link to="/doctors" className="btn btn-ghost" style={{ padding: '10px 16px', fontSize: '0.88rem' }}>
+                            Specialists
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -481,44 +463,58 @@ const Home = () => {
           })}
         </div>
 
-        {/* CAROUSEL BOTTOM CONTROLS & TABS */}
-        <div className="hero-controls-bar">
-          <div className="container">
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20 }}>
-              {/* Arrow navigation buttons */}
-              <div style={{ display: 'flex', gap: 10 }}>
-                <button
-                  onClick={prevSlide}
-                  className="hero-arrow-btn"
-                  title="Previous Slide"
-                  aria-label="Previous Slide"
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="hero-arrow-btn"
-                  title="Next Slide"
-                  aria-label="Next Slide"
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
+        {/* Floating Left & Right Slider Arrows */}
+        <button
+          onClick={prevSlide}
+          className="hero-slider-arrow prev"
+          title="Previous Slide"
+          aria-label="Previous Slide"
+        >
+          <ChevronLeft size={24} />
+        </button>
 
-              {/* Slide Tabs */}
-              <div className="hero-nav-tabs" style={{ flex: 1 }}>
-                {heroSlides.map((slide, idx) => (
-                  <button
-                    key={slide.id}
-                    className={`hero-nav-tab ${idx === currentSlide ? 'active' : ''}`}
-                    onClick={() => setCurrentSlide(idx)}
-                  >
-                    <div className="hero-nav-tab-index">0{slide.id} • HIGHLIGHT</div>
-                    <div className="hero-nav-tab-title">{slide.tag.split('•')[0].trim()}</div>
-                    {idx === currentSlide && <div className="hero-tab-progress" />}
-                  </button>
-                ))}
-              </div>
+        <button
+          onClick={nextSlide}
+          className="hero-slider-arrow next"
+          title="Next Slide"
+          aria-label="Next Slide"
+        >
+          <ChevronRight size={24} />
+        </button>
+
+        {/* Bottom Controls: Dots + Thumbnail Dock */}
+        <div className="hero-slider-bottom-controls">
+          <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20 }}>
+            {/* Dots */}
+            <div className="hero-slider-dots">
+              {heroSlides.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`hero-slider-dot ${idx === currentSlide ? 'active' : ''}`}
+                  onClick={() => setCurrentSlide(idx)}
+                  title={`Go to slide ${idx + 1}`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#86efac', marginLeft: 8 }}>
+                0{currentSlide + 1} / 0{heroSlides.length}
+              </span>
+            </div>
+
+            {/* Thumbnail Navigator */}
+            <div className="hero-thumbnail-navigator">
+              {heroSlides.map((slide, idx) => (
+                <button
+                  key={slide.id}
+                  className={`hero-thumbnail-item ${idx === currentSlide ? 'active' : ''}`}
+                  onClick={() => setCurrentSlide(idx)}
+                  title={slide.thumbnailLabel}
+                  aria-label={slide.thumbnailLabel}
+                >
+                  <img src={slide.bgImage} alt={slide.thumbnailLabel} />
+                  <div className="hero-thumbnail-label">{slide.thumbnailLabel}</div>
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -576,7 +572,7 @@ const Home = () => {
       {/* ========================================================= */}
       {/* FLOATING STATS STRIP                                      */}
       {/* ========================================================= */}
-      <section style={{ padding: '20px 0 60px' }}>
+      <section style={{ padding: '10px 0 60px' }}>
         <div className="container">
           <div className="stats-floating-strip" style={{ marginTop: 0 }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32, textAlign: 'center' }}>
