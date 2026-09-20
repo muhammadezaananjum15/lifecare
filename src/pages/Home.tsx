@@ -21,7 +21,10 @@ import {
   CheckCircle2,
   Calendar,
   Search,
-  ShoppingCart
+  ShoppingCart,
+  Building2,
+  FileText,
+  Microscope
 } from 'lucide-react';
 import DoctorCard from '../components/DoctorCard';
 import { doctors } from '../data/doctors';
@@ -42,7 +45,10 @@ interface HeroSlideData {
   primaryBtnLink: string;
   secondaryBtnText: string;
   secondaryBtnLink: string;
-  image: string;
+  images: {
+    url: string;
+    label: string;
+  }[];
   badgeTopText: string;
   badgeTopSub: string;
   badgeBottomVal: string;
@@ -62,7 +68,20 @@ const heroSlides: HeroSlideData[] = [
     primaryBtnLink: "/book",
     secondaryBtnText: "Emergency: 111-911-911",
     secondaryBtnLink: "tel:+9221111911911",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=85",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=85",
+        label: "Trauma ICU Suite"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1200&q=85",
+        label: "Rapid Response Unit"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200&q=85",
+        label: "Cardiac Emergency"
+      }
+    ],
     badgeTopText: "24/7 Emergency & ICU",
     badgeTopSub: "Trauma Teams On Standby",
     badgeBottomVal: "12 Mins",
@@ -80,7 +99,20 @@ const heroSlides: HeroSlideData[] = [
     primaryBtnLink: "/doctors",
     secondaryBtnText: "View Weekly Schedule",
     secondaryBtnLink: "/book",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=1200&q=85",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=1200&q=85",
+        label: "Consultant Suite"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&q=85",
+        label: "Robotic Operation Theatre"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=1200&q=85",
+        label: "Surgical Team"
+      }
+    ],
     badgeTopText: "Next Slot Available",
     badgeTopSub: "Today 11:30 AM (Clifton)",
     badgeBottomVal: "99.4%",
@@ -98,7 +130,20 @@ const heroSlides: HeroSlideData[] = [
     primaryBtnLink: "/medicines",
     secondaryBtnText: "Upload Prescription",
     secondaryBtnLink: "/medicines",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1200&q=85",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1200&q=85",
+        label: "Online Pharmacy"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=1200&q=85",
+        label: "Cold-Chain Storage"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&q=85",
+        label: "Express Dispatch Fleet"
+      }
+    ],
     badgeTopText: "2-Hour Express Delivery",
     badgeTopSub: "Active Across Karachi",
     badgeBottomVal: "20% OFF",
@@ -116,12 +161,53 @@ const heroSlides: HeroSlideData[] = [
     primaryBtnLink: "/services",
     secondaryBtnText: "Download Online Reports",
     secondaryBtnLink: "/contact",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&q=85",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&q=85",
+        label: "3.0T MRI Scanner"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&q=85",
+        label: "Digital Pathology Lab"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1200&q=85",
+        label: "AI Diagnostic Console"
+      }
+    ],
     badgeTopText: "Digital Reports in 4 Hrs",
     badgeTopSub: "AI Radiologist Verification",
     badgeBottomVal: "99.9%",
     badgeBottomText: "Diagnostic Accuracy",
     quickTags: ["3.0T Silent MRI", "Digital Mammography", "Automated Lab"]
+  }
+];
+
+// Hospital Virtual Photo Reel / Facilities
+const hospitalFacilities = [
+  {
+    tag: "Main Campus • Block 5 Clifton",
+    title: "Lifecare Clifton Flagship Tower",
+    desc: "350-bed tertiary care facility with 24/7 Level-1 trauma, cardiac suites, and VIP inpatient floors overlooking the Arabian Sea.",
+    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&q=80"
+  },
+  {
+    tag: "Surgical Suites • 4th Floor",
+    title: "Robotic & Laparoscopic Theatres",
+    desc: "Ultra-clean laminar air flow theatres equipped with da Vinci surgical telemetry and HD endoscopic towers.",
+    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80"
+  },
+  {
+    tag: "Diagnostic Imaging Centre",
+    title: "3.0 Tesla Silent MRI & CT Suite",
+    desc: "Zero-claustrophobia wide-bore scanning, 4D Doppler echocardiography, and low-dose pediatric imaging protocols.",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&q=80"
+  },
+  {
+    tag: "Inpatient Care",
+    title: "Executive Recovery Suites",
+    desc: "Private healing suites with hotel-tier amenities, dedicated nurse stations, and customized dietary plans.",
+    image: "https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=800&q=80"
   }
 ];
 
@@ -176,14 +262,17 @@ const symptomsData = [
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedZone, setSelectedZone] = useState(0);
   const [selectedSymptom, setSelectedSymptom] = useState(0);
-  const [searchDoctor, setSearchDoctor] = useState('');
-  const [searchSpecialty, setSearchSpecialty] = useState('');
   const slideTimerRef = useRef<number | null>(null);
-  const navigate = useNavigate();
   const { addToCart } = useCart();
+
+  // Reset selected image when slide changes
+  useEffect(() => {
+    setSelectedImageIndex(0);
+  }, [currentSlide]);
 
   // Carousel Auto-Play
   useEffect(() => {
@@ -249,19 +338,15 @@ const Home = () => {
     setCurrentSlide(prev => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    navigate(`/doctors?search=${encodeURIComponent(searchDoctor)}&specialty=${encodeURIComponent(searchSpecialty)}`);
-  };
-
   const featuredDoctors = doctors.slice(0, 4);
   const featuredMedicines = medicines.slice(0, 4);
   const activeSlideData = heroSlides[currentSlide];
+  const activeHeroImage = activeSlideData.images[selectedImageIndex] || activeSlideData.images[0];
 
   return (
     <>
       {/* ========================================================= */}
-      {/* HERO SECTION WITH DYNAMIC CAROUSEL                        */}
+      {/* HERO SECTION WITH MULTI-IMAGE CAROUSEL                    */}
       {/* ========================================================= */}
       <section
         className="hero-carousel-container"
@@ -274,6 +359,7 @@ const Home = () => {
         <div className="container" style={{ position: 'relative', zIndex: 5, flex: 1, display: 'flex', alignItems: 'center' }}>
           {heroSlides.map((slide, index) => {
             const isActive = index === currentSlide;
+            const currentImg = slide.images[selectedImageIndex] || slide.images[0];
             return (
               <div
                 key={slide.id}
@@ -338,33 +424,54 @@ const Home = () => {
                     </div>
                   </div>
 
-                  {/* Right: Visual Showcase */}
+                  {/* Right: Multi-Image Showcase with Thumbnail Switcher */}
                   <div className="hero-visual-card">
                     <img
-                      src={slide.image}
-                      alt={slide.titleLight}
+                      src={currentImg.url}
+                      alt={currentImg.label}
                       className="hero-visual-img"
                     />
 
-                    {/* Floating Top Badge */}
-                    <div className="hero-floating-badge-top">
-                      <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
-                        <Activity size={20} />
-                      </div>
-                      <div>
-                        <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ffffff' }}>{slide.badgeTopText}</div>
-                        <div style={{ fontSize: '0.75rem', color: '#86efac' }}>{slide.badgeTopSub}</div>
+                    {/* Image Thumbnails Strip */}
+                    <div className="hero-img-thumbnails-strip">
+                      {slide.images.map((img, imgIdx) => (
+                        <button
+                          key={imgIdx}
+                          className={`hero-img-thumb ${selectedImageIndex === imgIdx ? 'active' : ''}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedImageIndex(imgIdx);
+                          }}
+                          title={img.label}
+                          aria-label={img.label}
+                        >
+                          <img src={img.url} alt={img.label} />
+                        </button>
+                      ))}
+                      <div style={{ alignSelf: 'center', padding: '0 6px', fontSize: '0.72rem', color: '#86efac', fontWeight: 700 }}>
+                        {selectedImageIndex + 1}/{slide.images.length}
                       </div>
                     </div>
 
-                    {/* Floating Bottom Metric */}
+                    {/* Floating Top Badge */}
+                    <div className="hero-floating-badge-top">
+                      <div style={{ width: 34, height: 34, borderRadius: '50%', background: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
+                        <Activity size={18} />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ffffff' }}>{slide.badgeTopText}</div>
+                        <div style={{ fontSize: '0.72rem', color: '#86efac' }}>{slide.badgeTopSub}</div>
+                      </div>
+                    </div>
+
+                    {/* Floating Metric */}
                     <div className="hero-floating-badge-bottom">
                       <div>
-                        <div style={{ fontSize: '1.6rem', fontWeight: 900, color: 'var(--primary)', lineHeight: 1 }}>{slide.badgeBottomVal}</div>
-                        <div style={{ fontSize: '0.78rem', color: 'var(--gray-600)', fontWeight: 600 }}>{slide.badgeBottomText}</div>
+                        <div style={{ fontSize: '1.4rem', fontWeight: 900, color: 'var(--primary)', lineHeight: 1 }}>{slide.badgeBottomVal}</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--gray-600)', fontWeight: 600 }}>{slide.badgeBottomText}</div>
                       </div>
-                      <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'var(--green-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)' }}>
-                        <CheckCircle2 size={18} />
+                      <div style={{ width: 30, height: 30, borderRadius: '50%', background: 'var(--green-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)' }}>
+                        <CheckCircle2 size={16} />
                       </div>
                     </div>
                   </div>
@@ -418,11 +525,60 @@ const Home = () => {
       </section>
 
       {/* ========================================================= */}
+      {/* STITCH-INSPIRED FLOATING ACTION DOCK                      */}
+      {/* ========================================================= */}
+      <section style={{ padding: '0 0 40px' }}>
+        <div className="container">
+          <div className="stitch-action-dock">
+            <Link to="/book" className="dock-item">
+              <div className="dock-icon-box">
+                <Calendar size={22} />
+              </div>
+              <div>
+                <div className="dock-title">Book Doctor Appointment</div>
+                <div className="dock-sub">120+ specialists, 0 waiting queues</div>
+              </div>
+            </Link>
+
+            <Link to="/medicines" className="dock-item">
+              <div className="dock-icon-box">
+                <Pill size={22} />
+              </div>
+              <div>
+                <div className="dock-title">2-Hour Express Pharmacy</div>
+                <div className="dock-sub">Genuine meds & 20% off with code</div>
+              </div>
+            </Link>
+
+            <Link to="/services" className="dock-item">
+              <div className="dock-icon-box">
+                <Microscope size={22} />
+              </div>
+              <div>
+                <div className="dock-title">AI Diagnostics & MRI</div>
+                <div className="dock-sub">Same-day encrypted reports</div>
+              </div>
+            </Link>
+
+            <a href="tel:+9221111911911" className="dock-item" style={{ borderColor: 'rgba(239, 68, 68, 0.3)' }}>
+              <div className="dock-icon-box" style={{ background: 'rgba(239,68,68,0.1)', color: '#ef4444', borderColor: 'rgba(239,68,68,0.2)' }}>
+                <PhoneCall size={22} />
+              </div>
+              <div>
+                <div className="dock-title" style={{ color: '#dc2626' }}>24/7 Karachi Emergency</div>
+                <div className="dock-sub">12-min ambulance hotline</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
       {/* FLOATING STATS STRIP                                      */}
       {/* ========================================================= */}
-      <section style={{ padding: '0 0 60px' }}>
+      <section style={{ padding: '20px 0 60px' }}>
         <div className="container">
-          <div className="stats-floating-strip">
+          <div className="stats-floating-strip" style={{ marginTop: 0 }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32, textAlign: 'center' }}>
               {[
                 { icon: <Award size={26} />, count: 18, suffix: '+ Years', label: 'Clinical Excellence' },
@@ -447,9 +603,37 @@ const Home = () => {
       </section>
 
       {/* ========================================================= */}
+      {/* VIRTUAL HOSPITAL TOUR & FACILITIES PHOTO REEL             */}
+      {/* ========================================================= */}
+      <section className="section" style={{ background: 'var(--white)', paddingTop: 20 }}>
+        <div className="container">
+          <div className="section-header reveal-up">
+            <div className="section-tag"><Building2 size={14} /> Hospital Infrastructure</div>
+            <h2 className="section-title">World-Class Healthcare Facilities in Karachi</h2>
+            <p className="section-desc">
+              Designed according to international JCI architectural standards for clinical safety, hygiene, and rapid emergency intervention.
+            </p>
+          </div>
+
+          <div className="grid grid-4 reveal-stagger-cards">
+            {hospitalFacilities.map((f, i) => (
+              <div key={i} className="facility-card">
+                <img src={f.image} alt={f.title} />
+                <div className="facility-overlay">
+                  <div className="facility-tag">{f.tag}</div>
+                  <h3 className="facility-title">{f.title}</h3>
+                  <p className="facility-desc">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
       {/* UNIQUE PATTERN 1: KARACHI EMERGENCY DISPATCH ESTIMATOR   */}
       {/* ========================================================= */}
-      <section className="section" style={{ background: 'var(--gray-50)', paddingTop: 40 }}>
+      <section className="section" style={{ background: 'var(--gray-50)', paddingTop: 60 }}>
         <div className="container">
           <div className="dispatch-widget-card reveal-up">
             <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: 48, alignItems: 'center' }}>
